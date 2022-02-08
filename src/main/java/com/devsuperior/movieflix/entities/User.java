@@ -7,7 +7,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.management.Notification;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -41,7 +40,7 @@ public class User implements UserDetails, Serializable {
 	private Set<Role> roles = new HashSet<>();
 	
 	@OneToMany(mappedBy = "user")
-	private List<Notification> notifications = new ArrayList<>();
+	private List<Review> reviews = new ArrayList<>();
 
 	public User() {
 
@@ -90,11 +89,12 @@ public class User implements UserDetails, Serializable {
 	public Set<Role> getRoles() {
 		return roles;
 	}
-
-	public List<Notification> getNotifications() {
-		return notifications;
+	
+	public List<Review> getReviews() {
+		return reviews;
 	}
 
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
