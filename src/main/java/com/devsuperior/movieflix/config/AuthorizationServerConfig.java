@@ -16,11 +16,11 @@ import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
-import com.devsuperior.movieflix.components.JwtTokenEnchancer;
+import com.devsuperior.movieflix.components.JwtTokenEnhancer;
 
 @Configuration
 @EnableAuthorizationServer
-public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
+public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter{
 	
 	@Value("${security.oauth2.client.client-id}")
 	private String clientId;
@@ -30,7 +30,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	
 	@Value("${jwt.duration}")
 	private Integer jwtDuration;
-	
+
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	
@@ -44,16 +44,15 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	private AuthenticationManager authenticationManager;
 	
 	@Autowired
-	private JwtTokenEnchancer tokenEnhancer;
+	private JwtTokenEnhancer tokenEnhancer;
 	
 	@Override
 	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
 		security.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
 	}
-	
-	@Autowired
+
+	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-		
 		clients.inMemory()
 		.withClient(clientId)
 		.secret(passwordEncoder.encode(clientSecret))

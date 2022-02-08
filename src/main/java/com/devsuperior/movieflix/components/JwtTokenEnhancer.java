@@ -14,7 +14,7 @@ import com.devsuperior.movieflix.entities.User;
 import com.devsuperior.movieflix.reposritories.UserRepository;
 
 @Component
-public class JwtTokenEnchancer implements TokenEnhancer{
+public class JwtTokenEnhancer implements TokenEnhancer{
 	
 	@Autowired
 	private UserRepository userRepository;
