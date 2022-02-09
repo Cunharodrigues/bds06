@@ -12,8 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.devsuperior.movieflix.dto.ReviewDTO;
 import com.devsuperior.movieflix.entities.Review;
-import com.devsuperior.movieflix.reposritories.MovieRepository;
-import com.devsuperior.movieflix.reposritories.ReviewRepository;
+import com.devsuperior.movieflix.repositories.MovieRepository;
+import com.devsuperior.movieflix.repositories.ReviewRepository;
 import com.devsuperior.movieflix.services.exceptions.ResourceNotFoundException;
 
 @Service

@@ -12,8 +12,8 @@ import com.devsuperior.movieflix.dto.MovieDTO;
 import com.devsuperior.movieflix.dto.NewMovieDTO;
 import com.devsuperior.movieflix.entities.Genre;
 import com.devsuperior.movieflix.entities.Movie;
-import com.devsuperior.movieflix.reposritories.GenreRepository;
-import com.devsuperior.movieflix.reposritories.MovieRepository;
+import com.devsuperior.movieflix.repositories.GenreRepository;
+import com.devsuperior.movieflix.repositories.MovieRepository;
 import com.devsuperior.movieflix.services.exceptions.ResourceNotFoundException;
 
 @Service

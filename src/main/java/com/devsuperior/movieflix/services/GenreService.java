@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.devsuperior.movieflix.dto.GenreDTO;
 import com.devsuperior.movieflix.entities.Genre;
-import com.devsuperior.movieflix.reposritories.GenreRepository;
+import com.devsuperior.movieflix.repositories.GenreRepository;
 import com.devsuperior.movieflix.services.exceptions.ResourceNotFoundException;
 
 @Service

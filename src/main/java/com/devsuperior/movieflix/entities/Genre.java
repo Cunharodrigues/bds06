@@ -53,11 +53,7 @@ public class Genre implements Serializable {
 	public List<Movie> getMovies() {
 		return movies;
 	}
-
-	public void setMovies(List<Movie> movie) {
-		this.movies = movie;
-	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

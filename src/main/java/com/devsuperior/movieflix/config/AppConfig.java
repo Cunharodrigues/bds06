@@ -12,7 +12,8 @@ public class AppConfig {
 
 	@Value("${jwt.secret}")
 	private String jwtSecret;
-
+	
+	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
@@ -25,6 +26,7 @@ public class AppConfig {
 				
 	}
 	
+	@Bean
 	public JwtTokenStore tokenStore() {
 		return new JwtTokenStore(accessTokenConverter());
 	}

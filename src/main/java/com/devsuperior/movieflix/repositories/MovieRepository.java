@@ -1,4 +1,4 @@
-package com.devsuperior.movieflix.reposritories;
+package com.devsuperior.movieflix.repositories;
 
 import java.util.List;
 
@@ -12,9 +12,9 @@ import com.devsuperior.movieflix.entities.Movie;
 
 public interface MovieRepository extends JpaRepository<Movie, Long>{
 
-	@Query("SELECT obj FROM Movie obj WHERE :genre IS NOT NULL OR obj.genre = ORDER BY obj.title")
+	@Query("SELECT obj FROM Movie obj WHERE :genre IS NULL OR obj.genre = :genre ORDER BY obj.title")
 	Page<Movie> findByGenre(Genre genre, Pageable pageable);
 	
-	@Query("SELECT obj FROM Movie obj JOIN FETCH obj.genre WHERE obj IN : movies")
+	@Query("SELECT obj FROM Movie obj JOIN FETCH obj.genre WHERE obj IN :movies")
 	List<Movie> findMoviesAndGenres(List<Movie> movies);
 }

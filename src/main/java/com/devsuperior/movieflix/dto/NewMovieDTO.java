@@ -73,5 +73,4 @@ public class NewMovieDTO implements Serializable {
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
 	}
-
 }
