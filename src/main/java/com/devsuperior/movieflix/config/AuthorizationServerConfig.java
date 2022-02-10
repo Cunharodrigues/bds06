@@ -20,8 +20,8 @@ import com.devsuperior.movieflix.components.JwtTokenEnhancer;
 
 @Configuration
 @EnableAuthorizationServer
-public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter{
-	
+public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
+
 	@Value("${security.oauth2.client.client-id}")
 	private String clientId;
 	
@@ -30,7 +30,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	
 	@Value("${jwt.duration}")
 	private Integer jwtDuration;
-
+	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	
@@ -45,9 +45,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	
 	@Autowired
 	private JwtTokenEnhancer tokenEnhancer;
-	
-	//@Autowired
-	//private UserDetailsService userDetailsService;
 	
 	@Override
 	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
@@ -74,13 +71,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 		.tokenStore(tokenStore)
 		.accessTokenConverter(accessTokenConverter)
 		.tokenEnhancer(chain);
+		
+		
 	}
 
-	/*public UserDetailsService getUserDetailsService() {
-		return userDetailsService;
-	}
-
-	public void setUserDetailsService(UserDetailsService userDetailsService) {
-		this.userDetailsService = userDetailsService;
-	}*/
+		
 }
