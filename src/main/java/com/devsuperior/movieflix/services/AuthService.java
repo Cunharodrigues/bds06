@@ -15,21 +15,21 @@ public class AuthService {
 
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	@Transactional(readOnly = true)
 	public User authenticated() {
 		try {
-		String username = SecurityContextHolder.getContext().getAuthentication().getName();
-		return userRepository.findByEmail(username);
-		}
-		catch(Exception e) {
+			String username = SecurityContextHolder.getContext().getAuthentication().getName();
+			return userRepository.findByEmail(username);
+		} 
+		catch (Exception e) {
 			throw new UnauthorizedException("Invalid user");
 		}
 	}
-	
+
 	public void validateSelfOrAdmin(Long userId) {
 		User user = authenticated();
-		if(!user.getId().equals(userId) && !user.hasHole("ROLE_MEMBER")) {
+		if (!user.getId().equals(userId) && !user.hasHole("ROLE_MEMBER")) {
 			throw new ForbiddenException("Access denied");
 		}
 	}
