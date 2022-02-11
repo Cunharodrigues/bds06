@@ -18,7 +18,6 @@ public class NewMovieDTO implements Serializable {
 	}
 
 	public NewMovieDTO(Long id, String title, String subTitle, Integer year, String imgUrl) {
-		super();
 		this.id = id;
 		this.title = title;
 		this.subTitle = subTitle;

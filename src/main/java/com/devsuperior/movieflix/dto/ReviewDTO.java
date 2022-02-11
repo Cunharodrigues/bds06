@@ -60,4 +60,8 @@ public class ReviewDTO implements Serializable {
 		this.user = user;
 	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 }
