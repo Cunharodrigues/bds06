@@ -6,27 +6,27 @@ import com.devsuperior.movieflix.entities.Review;
 
 public class NewMovieReviewDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
-
+	
 	private Long id;
 	private String text;
 	private Long movieId;
-	private UserDTO user;
+	private UserDTO user; 
 	
 	public NewMovieReviewDTO() {
-		
 	}
-
+	
 	public NewMovieReviewDTO(Review entity) {
 		id = entity.getId();
 		text = entity.getText();
 		movieId = entity.getMovie().getId();
 		user = new UserDTO(entity.getUser());
+		 
 	}
 
 	public Long getId() {
 		return id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -57,5 +57,5 @@ public class NewMovieReviewDTO implements Serializable{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
-	}
+	} 
 }

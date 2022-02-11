@@ -18,9 +18,9 @@ import com.devsuperior.movieflix.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class ReviewService {
-
+	
 	@Autowired
-	private ReviewRepository repository;
+	private ReviewRepository repository; 
 	
 	@Autowired
 	private AuthService authService;
@@ -41,7 +41,7 @@ public class ReviewService {
 		Review entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
 		return new ReviewDTO(entity);
 	}
-	
+
 	@Transactional
 	public ReviewDTO insert(ReviewDTO dto) {
 		Review entity = new Review();
@@ -51,7 +51,7 @@ public class ReviewService {
 		entity = repository.save(entity);
 		return new ReviewDTO(entity);
 	}
-	
+
 	@Transactional
 	public ReviewDTO update(Long id, ReviewDTO dto) {
 		try {

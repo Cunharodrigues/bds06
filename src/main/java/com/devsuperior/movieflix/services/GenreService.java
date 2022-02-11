@@ -17,27 +17,26 @@ import com.devsuperior.movieflix.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class GenreService {
-
+	
 	@Autowired
-	private GenreRepository repository;
-
+	private GenreRepository repository; 
+	
 	@Transactional(readOnly = true)
 	public Page<GenreDTO> findAllPaged(Pageable pageable) {
-		    Page<Genre> list = repository.findAll(pageable);
-		    return list.map(x -> new GenreDTO(x));
+		Page<Genre> list = repository.findAll(pageable);
+		return list.map(x -> new GenreDTO(x));
 	}
-
-	//@Transactional(readOnly = true)
+	
 	public List<GenreDTO> findAll() {
-		    List<Genre> list = repository.findAll();
-		    return list.stream().map(x -> new GenreDTO(x)).collect(Collectors.toList());
-
+		List<Genre> list = repository.findAll();
+		return list.stream().map(x -> new GenreDTO(x)).collect(Collectors.toList());
+		
 	}
-
+	
 	@Transactional(readOnly = true)
 	public GenreDTO findById(Long id) {
-			Optional<Genre> obj = repository.findById(id);
-			Genre entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
-			return new GenreDTO(entity);
+		Optional<Genre> obj = repository.findById(id);
+		Genre entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
+		return new GenreDTO(entity);
 	}
 }

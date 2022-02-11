@@ -25,9 +25,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @Table(name = "tb_user")
-public class User implements UserDetails, Serializable {
+public class User implements UserDetails, Serializable{
 	private static final long serialVersionUID = 1L;
-
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -43,17 +44,17 @@ public class User implements UserDetails, Serializable {
 	
 	@OneToMany(mappedBy = "user")
 	private List<Review> reviews = new ArrayList<>();
-
+	
 	public User() {
-
 	}
 
-	public User(Long id, String name, String email, String password) {
+	public User(Long id, String name, String email, String password, Set<Role> roles) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.password = password;
+		this.roles = roles;
 	}
 
 	public Long getId() {
@@ -87,16 +88,15 @@ public class User implements UserDetails, Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-		
+
 	public Set<Role> getRoles() {
 		return roles;
 	}
-	
+
 	public List<Review> getReviews() {
 		return reviews;
 	}
 
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -121,11 +121,10 @@ public class User implements UserDetails, Serializable {
 			return false;
 		return true;
 	}
-
+	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return roles.stream().map(role -> new SimpleGrantedAuthority(role.getAuthority()))
-				.collect(Collectors.toList());
+		return roles.stream().map(role -> new SimpleGrantedAuthority(role.getAuthority())).collect(Collectors.toList());
 	}
 
 	@Override
@@ -152,10 +151,10 @@ public class User implements UserDetails, Serializable {
 	public boolean isEnabled() {
 		return true;
 	}
-
-	public boolean hasHole(String rolename) {
-		for (Role role : roles) {
-			if (role.getAuthority().equals(rolename)) {
+	
+	public boolean hasHole(String roleName) {
+		for(Role role : roles) {
+			if(role.getAuthority().equals(roleName)) {
 				return true;
 			}
 		}

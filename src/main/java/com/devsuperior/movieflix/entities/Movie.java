@@ -16,7 +16,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_movie")
-public class Movie implements Serializable {
+public class Movie implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -38,7 +38,6 @@ public class Movie implements Serializable {
 	private List<Review> reviews = new ArrayList<>();
 	
 	public Movie() {
-		
 	}
 
 	public Movie(Long id, String title, String subTitle, Integer year, String imgUrl, String synopsis, Genre genre) {
@@ -88,8 +87,8 @@ public class Movie implements Serializable {
 		return imgUrl;
 	}
 
-	public void setImgUrl(String imgUrl) {
-		this.imgUrl = imgUrl;
+	public void setImgUrl(String imgUri) {
+		this.imgUrl = imgUri;
 	}
 
 	public String getSynopsis() {
@@ -107,7 +106,7 @@ public class Movie implements Serializable {
 	public void setGenre(Genre genre) {
 		this.genre = genre;
 	}
-
+	
 	public List<Review> getReviews() {
 		return reviews;
 	}
@@ -136,7 +135,4 @@ public class Movie implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-
 }

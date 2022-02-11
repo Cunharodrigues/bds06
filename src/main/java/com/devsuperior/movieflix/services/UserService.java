@@ -1,5 +1,6 @@
 package com.devsuperior.movieflix.services;
 
+
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -18,12 +19,12 @@ import com.devsuperior.movieflix.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class UserService implements UserDetailsService {
-	
+
 	private static Logger logger = LoggerFactory.getLogger(UserService.class);
-	
+
 	@Autowired
 	private UserRepository repository;
-	
+
 	@Autowired
 	private AuthService authService;
 
@@ -31,6 +32,7 @@ public class UserService implements UserDetailsService {
 	public UserDTO getProfile() {
 		return new UserDTO(authService.authenticated());
 	}
+	
 	
 	@Transactional(readOnly = true)
 	public UserDTO findById(Long id) {
@@ -40,15 +42,17 @@ public class UserService implements UserDetailsService {
 		return new UserDTO(entity);
 	}
 	
+	
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
 		User user = repository.findByEmail(username);
 		if (user == null) {
-			logger.error("User not found" + username);
+			logger.error("User not found: " + username);
 			throw new UsernameNotFoundException("Email not found");
 		}
-		logger.info("User found" + username);
+		logger.info("User found: " + username);
 		return user;
 	}
 }

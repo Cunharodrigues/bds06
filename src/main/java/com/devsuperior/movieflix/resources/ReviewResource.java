@@ -24,7 +24,7 @@ import com.devsuperior.movieflix.services.ReviewService;
 @RestController
 @RequestMapping(value = "/reviews")
 public class ReviewResource {
-
+	
 	@Autowired
 	private ReviewService service;
 	

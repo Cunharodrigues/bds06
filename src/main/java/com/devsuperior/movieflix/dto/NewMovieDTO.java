@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import com.devsuperior.movieflix.entities.Movie;
 
-public class NewMovieDTO implements Serializable {
+public class NewMovieDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
@@ -14,7 +14,6 @@ public class NewMovieDTO implements Serializable {
 	private String imgUrl;
 	
 	public NewMovieDTO() {
-		
 	}
 
 	public NewMovieDTO(Long id, String title, String subTitle, Integer year, String imgUrl) {
@@ -23,14 +22,16 @@ public class NewMovieDTO implements Serializable {
 		this.subTitle = subTitle;
 		this.year = year;
 		this.imgUrl = imgUrl;
+		
 	}
 	
 	public NewMovieDTO(Movie entity) {
 		id = entity.getId();
-		title = entity.getSubTitle();
+		title = entity.getTitle();
 		subTitle = entity.getSubTitle();
 		year = entity.getYear();
 		imgUrl = entity.getImgUrl();
+		
 	}
 
 	public Long getId() {
@@ -71,5 +72,5 @@ public class NewMovieDTO implements Serializable {
 
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
-	}
+	}	 
 }

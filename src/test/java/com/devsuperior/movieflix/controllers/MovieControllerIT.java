@@ -124,6 +124,7 @@ public class MovieControllerIT {
 		result.andExpect(status().isUnauthorized());
 	}
 
+
 	@Test
 	public void findByGenreShouldReturnOrderedPageWhenVisitorAuthenticated() throws Exception {
 

@@ -13,10 +13,9 @@ public class MovieDTO implements Serializable{
 	private Integer year;
 	private String imgUrl;
 	private String synopsis;
-	private GenreDTO genre;  
+	private GenreDTO genre; 
 	
 	public MovieDTO() {
-		
 	}
 	
 	public MovieDTO(Movie entity) {
@@ -87,6 +86,5 @@ public class MovieDTO implements Serializable{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
-	}
-	
+	}	 
 }

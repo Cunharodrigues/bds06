@@ -6,7 +6,7 @@ import javax.validation.constraints.NotBlank;
 
 import com.devsuperior.movieflix.entities.Review;
 
-public class ReviewDTO implements Serializable {
+public class ReviewDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
@@ -14,10 +14,9 @@ public class ReviewDTO implements Serializable {
 	@NotBlank(message = "          ")
 	private String text;
 	private Long movieId;
-	private UserDTO user;
+	private UserDTO user; 
 	
 	public ReviewDTO() {
-		
 	}
 	
 	public ReviewDTO(Review entity) {
@@ -62,6 +61,5 @@ public class ReviewDTO implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
-	}
-
+	} 
 }

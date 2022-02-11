@@ -12,8 +12,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_review")
-public class Review implements Serializable {
+public class Review implements Serializable{
 	private static final long serialVersionUID = 1L;
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,9 +29,7 @@ public class Review implements Serializable {
 	@JoinColumn(name = "user_id")
 	private User user;
 	
-
 	public Review() {
-		
 	}
 
 	public Review(Long id, String text, Movie movie, User user) {
@@ -81,7 +80,6 @@ public class Review implements Serializable {
 		return result;
 	}
 
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -98,5 +96,4 @@ public class Review implements Serializable {
 			return false;
 		return true;
 	}
-	
 }

@@ -13,23 +13,21 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_genre")
-public class Genre implements Serializable {
+public class Genre implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)  
+	private Long id; 
 	private String name;
 	
 	@OneToMany(mappedBy = "genre")
 	private List<Movie> movies = new ArrayList<>();
 	
 	public Genre() {
-		
 	}
 
 	public Genre(Long id, String name) {
-		super();
 		this.id = id;
 		this.name = name;
 	}
@@ -50,16 +48,16 @@ public class Genre implements Serializable {
 		this.name = name;
 	}
 
-	public List<Movie> getMovies() {
-		return movies;
-	}
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
+	}
+	
+	public List<Movie> getMovies() {
+		return movies;
 	}
 
 	@Override
@@ -78,7 +76,4 @@ public class Genre implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-
 }
