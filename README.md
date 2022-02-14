@@ -1,5 +1,5 @@
 # Desafio entregue bds06 #
-<p>AREFA: MovieFlix casos de uso</p>
+<p>TAREFA: MovieFlix casos de uso</p>
 <p>Implemente as funcionalidades necessárias para que os testes do projeto abaixo passem:<p>
 <p>https://github.com/devsuperior/bds06<p>
 <p>Collection do Postman:<p>
