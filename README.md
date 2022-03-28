@@ -35,8 +35,8 @@ Um mesmo usuário membro pode deixar mais de uma avaliação para o mesmo filme.
 
 # Visualizar detalhes do filme:
     - [IN]  O usuário visitante ou membro seleciona um filme.
-    - [OUT] O sistema informa título, subtítulo, ano, imagem e sinopse do filme, e também uma listagem dos textos das avaliações 
-    daquele filme juntamente com nome do usuário que fez cada avaliação.
+    - [OUT] O sistema informa título, subtítulo, ano, imagem e sinopse do filme, e também uma listagem dos textos
+      das avaliações daquele filme juntamente com nome do usuário que fez cada avaliação.
     - [IN]  O usuário membro informa, opcionalmente, um texto para avaliação do filme.
     - [OUT] O sistema apresenta os dados atualizados, já aparecendo também a avaliação feita pelo usuário.
 
