@@ -1,5 +1,5 @@
-# Desafio entregue bds06 #
-<p>TAREFA: MovieFlix casos de uso</p>
+# TAREFA: MovieFlix casos de uso  #
+<p> Desafio entregue bds06 </p>
 <p>Implemente as funcionalidades necessárias para que os testes do projeto abaixo passem:<p>
 <p>https://github.com/Cunharodrigues/bds06<p>
 <p>Collection do Postman:<p>
